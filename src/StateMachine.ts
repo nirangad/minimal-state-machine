@@ -42,6 +42,7 @@ export default class StateMachine {
     }
 
     this.generateFSM();
+    //console.log("FSM: ", this);
   }
 
   get state(): State {
@@ -64,18 +65,20 @@ export default class StateMachine {
 
       if (this.moveTo[transition.to] == undefined) {
         this.moveTo[transition.to] = (
-          postTransitionCallback: (prevState: string, newState: string) => void
+          postTransitionCallback?: (prevState: string, newState: string) => void
         ) => {
           if (
             this._moveToRules[transition.to] != undefined &&
             Array.isArray(this._moveToRules[transition.to]) &&
-            this._moveToRules[this._state].includes(this._state)
+            this._moveToRules[transition.to].includes(this._state)
           ) {
             let previousState = this._state;
             this._history.push(previousState);
 
             this._state = transition.to;
-            postTransitionCallback(previousState, this._state);
+            if (postTransitionCallback) {
+              postTransitionCallback(previousState, this._state);
+            }
           } else {
             throw new Error(
               `Invalid state transistion: From ${this._state} to ${transition.to}`
