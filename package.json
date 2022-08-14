@@ -1,0 +1,28 @@
+{
+  "name": "@nirangad/minimal-state-machine",
+  "version": "1.0.0",
+  "description": "Finite State machine for Node with basic features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./lib/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirangad/minimal-state-machine.git"
+  },
+  "keywords": [
+    "nodejs",
+    "FSM",
+    "state machine"
+  ],
+  "author": "https://github.com/nirangad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nirangad/minimal-state-machine/issues"
+  },
+  "homepage": "https://github.com/nirangad/minimal-state-machine#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
