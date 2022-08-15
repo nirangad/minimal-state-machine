@@ -1,4 +1,4 @@
-## minimal-state-machine
+# minimal-state-machine
 Finite State machine for NodeJS with basic state transitions
 
 ## Install

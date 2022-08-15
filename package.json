@@ -2,6 +2,7 @@
   "name": "@nirangad/minimal-state-machine",
   "version": "1.0.0",
   "description": "Finite State machine for Node with basic features",
+  "main": "./lib/StateMachine.js",
   "directories": {
     "lib": "lib"
   },

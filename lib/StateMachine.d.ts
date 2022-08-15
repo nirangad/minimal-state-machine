@@ -1,4 +1,3 @@
-import StateTransition, { State } from "./StateTransition";
 export default class StateMachine {
     private _state;
     readonly states: State[];
@@ -17,4 +16,9 @@ export default class StateMachine {
     private generateFSM;
     private validate;
 }
-//# sourceMappingURL=StateMachine.d.ts.map
+export declare type State = string;
+export declare class StateTransition {
+    from: State;
+    to: State;
+    constructor(from: State, to: State);
+}

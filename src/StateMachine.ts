@@ -1,5 +1,3 @@
-import StateTransition, { State } from "./StateTransition";
-
 export default class StateMachine {
   // Current State of the FSM
   private _state: State;
@@ -107,5 +105,17 @@ export default class StateMachine {
     return invalidStates.length == 0
       ? { valid: true, error: undefined }
       : { valid: false, error: invalidStates };
+  }
+}
+
+export type State = string;
+
+export class StateTransition {
+  from: State;
+  to: State;
+
+  constructor(from: State, to: State) {
+    this.from = from;
+    this.to = to;
   }
 }
