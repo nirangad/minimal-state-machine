@@ -2,10 +2,11 @@
   "name": "@nirangad/minimal-state-machine",
   "version": "1.0.0",
   "description": "Finite State machine for Node with basic features",
-  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./lib/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/nirangad/minimal-state-machine/issues"
   },
-  "homepage": "https://github.com/nirangad/minimal-state-machine#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  }
+  "homepage": "https://github.com/nirangad/minimal-state-machine#readme"
 }

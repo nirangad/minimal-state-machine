@@ -42,7 +42,6 @@ export default class StateMachine {
     }
 
     this.generateFSM();
-    //console.log("FSM: ", this);
   }
 
   get state(): State {

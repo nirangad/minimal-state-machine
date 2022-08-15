@@ -1,0 +1,1 @@
+{"version":3,"file":"StateTransition.d.ts","sourceRoot":"","sources":["../src/StateTransition.ts"],"names":[],"mappings":"AAAA,oBAAY,KAAK,GAAG,MAAM,CAAC;AAE3B,MAAM,CAAC,OAAO,OAAO,eAAe;IAClC,IAAI,EAAE,KAAK,CAAC;IACZ,EAAE,EAAE,KAAK,CAAC;gBAEE,IAAI,EAAE,KAAK,EAAE,EAAE,EAAE,KAAK;CAInC"}
