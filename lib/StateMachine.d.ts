@@ -1,4 +1,5 @@
 export default class StateMachine {
+    private readonly _initialState;
     private _state;
     readonly states: State[];
     readonly transitions: StateTransition[];
@@ -13,6 +14,7 @@ export default class StateMachine {
     });
     get state(): State;
     get history(): State[];
+    reset(): void;
     private generateFSM;
     private validate;
 }

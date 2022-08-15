@@ -1,4 +1,6 @@
 export default class StateMachine {
+  // Initial state
+  private readonly _initialState: State;
   // Current State of the FSM
   private _state: State;
 
@@ -21,6 +23,7 @@ export default class StateMachine {
     initialState: State,
     options: { states: State[]; transitions: StateTransition[] }
   ) {
+    this._initialState = initialState;
     this._state = initialState;
     this.states = options.states;
     this.transitions = options.transitions;
@@ -35,7 +38,7 @@ export default class StateMachine {
       this.transitions = [];
 
       throw new Error(
-        `Invalid state transistion(s): ${validStatus.error!.join(",")}`
+        `Invalid state transition(s): ${validStatus.error!.join(",")}`
       );
     }
 
@@ -50,7 +53,12 @@ export default class StateMachine {
     return this._history;
   }
 
-  private generateFSM() {
+  reset(): void {
+    this._state = this._initialState;
+    this._history = [];
+  }
+
+  private generateFSM(): void {
     this.transitions.forEach((transition) => {
       if (!Array.isArray(this._moveToRules[transition.to])) {
         this._moveToRules[transition.to] = [];
@@ -78,7 +86,7 @@ export default class StateMachine {
             }
           } else {
             throw new Error(
-              `Invalid state transistion: From ${this._state} to ${transition.to}`
+              `Invalid state transition: From ${this._state} to ${transition.to}`
             );
           }
         };
