@@ -75,8 +75,6 @@ fsm.moveTo.finalized();
 
 ### Reset the state machine
 ```typescript
-// Trying to move to 'finalized' state from 'pending' state
-// Prints 'ERROR:  Invalid state transition: From pending to finalized'
 fsm.reset();
 
 // Prints 'new'
