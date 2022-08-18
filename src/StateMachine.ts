@@ -16,6 +16,9 @@ export default class StateMachine {
   // Conditions for available actions
   private _moveToRules: { [key: string]: string[] };
 
+  // Conditions for possibile actions
+  private _moveFromRules: { [key: string]: string[] };
+
   // State change history tracker
   private _history: State[];
 
@@ -29,6 +32,7 @@ export default class StateMachine {
     this.transitions = options.transitions;
     this.moveTo = {};
     this._moveToRules = {};
+    this._moveFromRules = {};
 
     this._history = [];
 
@@ -58,14 +62,26 @@ export default class StateMachine {
     this._history = [];
   }
 
+  posibilities(): State[] {
+    return this._moveFromRules[this._state] || [];
+  }
+
   private generateFSM(): void {
     this.transitions.forEach((transition) => {
       if (!Array.isArray(this._moveToRules[transition.to])) {
         this._moveToRules[transition.to] = [];
       }
 
+      if (!Array.isArray(this._moveFromRules[transition.from])) {
+        this._moveFromRules[transition.from] = [];
+      }
+
       if (!this._moveToRules[transition.to].includes(transition.from)) {
         this._moveToRules[transition.to].push(transition.from);
+      }
+
+      if (!this._moveFromRules[transition.from].includes(transition.to)) {
+        this._moveFromRules[transition.from].push(transition.to);
       }
 
       if (this.moveTo[transition.to] == undefined) {

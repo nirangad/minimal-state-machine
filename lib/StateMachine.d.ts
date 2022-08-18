@@ -7,6 +7,7 @@ export default class StateMachine {
         [key: string]: Function;
     };
     private _moveToRules;
+    private _moveFromRules;
     private _history;
     constructor(initialState: State, options: {
         states: State[];
@@ -15,6 +16,7 @@ export default class StateMachine {
     get state(): State;
     get history(): State[];
     reset(): void;
+    posibilities(): State[];
     private generateFSM;
     private validate;
 }
